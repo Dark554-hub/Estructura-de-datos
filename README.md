@@ -1,51 +1,31 @@
-# Estructura de Datos - Gestión de Ventas Mensuales por Departamento
+# Control de Ventas por Departamento
 
-Este repositorio contiene las implementaciones en **Python** y **Java** de un sistema de gestión de ventas mensuales representadas mediante **arreglos bidimensionales (matrices 2D)**.
+Este programa en Python gestiona las ventas mensuales de una tienda dividida en tres departamentos: Ropa, Deportes y Juguetería, a lo largo de los 12 meses del año.
 
----
+La información se almacena utilizando una matriz bidimensional (arreglo 2D) donde cada fila representa un mes (de Enero a Diciembre) y cada columna representa uno de los departamentos.
 
-## 📌 Descripción del Programa
+## Estructura de los datos
 
-El programa gestiona una matriz de **12 filas** (correspondientes a los meses del año, de Enero a Diciembre) por **3 columnas** (correspondientes a los departamentos: *Ropa*, *Deportes* y *Juguetería*).
+La matriz tiene un tamaño de 12 x 3:
 
-### Estructura de la Matriz:
-| Mes | Ropa (Columna 0) | Deportes (Columna 1) | Juguetería (Columna 2) |
-|---|---|---|---|
-| **Enero (Fila 0)** | Ventas Ropa | Ventas Deportes | Ventas Juguetería |
-| **Febrero (Fila 1)** | Ventas Ropa | Ventas Deportes | Ventas Juguetería |
-| ... | ... | ... | ... |
-| **Diciembre (Fila 11)** | Ventas Ropa | Ventas Deportes | Ventas Juguetería |
+- Filas (12): Enero (índice 0) hasta Diciembre (índice 11).
+- Columnas (3): Ropa (índice 0), Deportes (índice 1) y Juguetería (índice 2).
 
----
+## Explicación de los métodos
 
-## ⚙️ Explicación de los Métodos Principales
+### 1. Método para insertar o actualizar ventas (`insertar_venta`)
+Este método recibe el mes, el departamento y la cantidad vendida. Se encarga de convertir el mes y el departamento a sus posiciones numéricas dentro de la matriz para guardar el valor correspondiente. Antes de registrar la venta, valida que el mes y el departamento existan y que el monto no sea negativo.
 
-### 1. Método para Insertar / Actualizar Elementos
-* **Python:** `insertar_venta(mes, departamento, monto)`
-* **Java:** `insertarVenta(String mes, String departamento, double monto)`
-* **Funcionamiento:** Recibe el mes (por nombre o número 1-12), el departamento (por nombre o número 1-3) y la cantidad a registrar. Convierte los parámetros a los índices numéricos correspondientes de la matriz `[fila][columna]` y asigna el valor. Valida que los índices estén en rango y que el monto sea no negativo.
+### 2. Método para buscar una venta (`buscar_venta`)
+Permite consultar la venta registrada de un departamento en un mes específico. Recibe como parámetro el mes y el departamento a consultar, ubica la celda en la matriz y regresa o muestra en pantalla la cifra registrada.
 
-### 2. Método para Buscar un Elemento en Particular
-* **Python:** `buscar_venta(mes, departamento)`
-* **Java:** `buscarVenta(String mes, String departamento)`
-* **Funcionamiento:** Localiza la celda correspondiente en la matriz `[índice_mes][índice_departamento]`, extrae el monto de venta acumulado/registrado y lo retorna o muestra en consola.
+### 3. Método para eliminar una venta (`eliminar_venta`)
+Sirve para borrar el registro de una venta en particular. Al indicarle el mes y el departamento, la función ubica la posición en la matriz y reinicia su valor a cero.
 
-### 3. Método para Eliminar una Venta en Particular
-* **Python:** `eliminar_venta(mes, departamento)`
-* **Java:** `eliminarVenta(String mes, String departamento)`
-* **Funcionamiento:** Ubica la celda `[índice_mes][índice_departamento]` especificada por el usuario y restablece su valor a `0.0`, dejando el registro del departamento sin ventas para ese mes.
+## Cómo ejecutar el programa
 
----
+Para correr el programa en la consola, ejecuta el siguiente comando:
 
-## 🚀 Ejecución del Código
-
-### En Python:
 ```bash
 python VentasDepartamentos.py
-```
-
-### En Java:
-```bash
-javac VentasDepartamentos.java
-java VentasDepartamentos
 ```
